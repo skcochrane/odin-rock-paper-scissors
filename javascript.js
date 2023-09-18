@@ -1,6 +1,5 @@
 "use strict";
 
-// Create function for computer to randomly pick rock, paper, or scissors -- random number between 1&3, each number assigned to a choice
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3) + 1;
 
@@ -15,8 +14,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// Create function for a single round of play -- takes two parameters (computerChoice, playerChoice), returns a string declaring the winner.
-// let playerChoice = prompt("Make a choice: rock, paper, or scissors");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -46,8 +43,6 @@ function playRound(computerChoice, playerChoice) {
 }
 
 // console.log(playRound(getComputerChoice(), playerChoice));
-
-// Create function to play 5 rounds. Keep score. First player to 3 wins.
 
 function game() {
   for (let i = 0; i < 5; i++) {
