@@ -44,23 +44,23 @@ function playRound(computerChoice, playerChoice) {
 
 // console.log(playRound(getComputerChoice(), playerChoice));
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound(
-      getComputerChoice(),
-      prompt("Make a choice: rock, paper, or scissors")
-    );
-    console.log(
-      `Player Score: ${playerScore}, Computer Score: ${computerScore}`
-    );
-  }
-  if (playerScore > computerScore) {
-    return "Congratulations, you win!";
-  } else if (computerScore > playerScore) {
-    return "I'm sorry, computer wins.";
-  } else {
-    return "It's a tie.";
-  }
-}
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     playRound(
+//       getComputerChoice(),
+//       prompt("Make a choice: rock, paper, or scissors")
+//     );
+//     console.log(
+//       `Player Score: ${playerScore}, Computer Score: ${computerScore}`
+//     );
+//   }
+//   if (playerScore > computerScore) {
+//     return "Congratulations, you win!";
+//   } else if (computerScore > playerScore) {
+//     return "I'm sorry, computer wins.";
+//   } else {
+//     return "It's a tie.";
+//   }
+// }
 
 console.log(game());
