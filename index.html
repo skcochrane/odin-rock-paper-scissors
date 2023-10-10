@@ -2,37 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
     <h1>Rock, Paper, Scissors</h1>
-
     <div class="choices">
-      <h2>Pick your weapon</h2>
+      <h2>Take your pick:</h2>
       <button class="weapon rock">Rock</button>
       <button class="weapon paper">Paper</button>
       <button class="weapon scissors">Scissors</button>
     </div>
     <div class="play-area">
-      <div class="human-choice">
+      <div class="human-choice choice">
         <h3>Your Choice:</h3>
-        <img src="" alt="" />
+        <img src="./img/question.svg" alt="Question mark" />
       </div>
-      <div class="computer-choice">
+      <div class="computer-choice choice">
         <h3>Computer Choice:</h3>
-        <img src="" alt="" />
+        <img src="./img/question.svg" alt="Question mark" />
       </div>
     </div>
-    <h2 class="outcome">This is the outcome of the round.</h2>
+    <h3 class="outcome">This is the outcome of the round.</h3>
     <div class="scoreboard">
       <h2>Score</h2>
-      <div class="human-score-box">
-        <h3>Your Score</h3>
-        <h3 class="human-score">0</h3>
-      </div>
-      <div class="computer-score-box">
-        <h3>Computer Score</h3>
-        <h3 class="computer-score">0</h3>
+      <div class="scores">
+        <div class="score-box">
+          <h3>Your Score:</h3>
+          <h3 class="human-score">0</h3>
+        </div>
+        <div class="score-box">
+          <h3>Computer Score:</h3>
+          <h3 class="computer-score">0</h3>
+        </div>
       </div>
     </div>
 
