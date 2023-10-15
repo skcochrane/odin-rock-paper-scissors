@@ -4,6 +4,7 @@
 
 body {
   background-color: #fafafa;
+  padding: 0 100px;
   text-align: center;
 }
 
@@ -39,14 +40,15 @@ h3 {
 .choice,
 img {
   width: 150px;
+  margin-top: 10px;
 }
 
 .choices {
   padding: 30px 0;
 }
 
-.outcome {
-  /* display: none; */
+.hidden {
+  display: none;
 }
 
 .play-area {

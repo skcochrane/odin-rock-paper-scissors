@@ -1,66 +1,92 @@
 "use strict";
 
-function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 3) + 1;
+let computerScore = document.querySelector(".computer-score");
+let playerScore = document.querySelector(".human-score");
+let outcome = document.querySelector(".outcome");
+let rockBtn = document.querySelector(".rock");
+let paperBtn = document.querySelector(".paper");
+let scissorsBtn = document.querySelector(".scissors");
+let playerChoiceImg = document.querySelector(".human-choice-img");
+let computerChoiceImg = document.querySelector(".computer-choice-img");
 
+let computerChoice;
+let playerChoice;
+let cScore = 0;
+let pScore = 0;
+
+function computerScoresPoint() {
+  cScore++;
+  computerScore.textContent = cScore;
+}
+
+function playerScoresPoint() {
+  pScore++;
+  playerScore.textContent = pScore;
+}
+
+function getComputerChoice() {
+  computerChoice = Math.floor(Math.random() * 3) + 1;
   if (computerChoice === 1) {
     computerChoice = "rock";
+    computerChoiceImg.src = "./img/rock.svg";
+    computerChoiceImg.alt = "rock";
   } else if (computerChoice === 2) {
     computerChoice = "paper";
+    computerChoiceImg.src = "./img/paper.svg";
+    computerChoiceImg.alt = "paper";
   } else {
     computerChoice = "scissors";
+    computerChoiceImg.src = "./img/scissors.svg";
+    computerChoiceImg.alt = "scissors";
   }
-  //   console.log(computerChoice);
   return computerChoice;
 }
 
-let computerScore = 0;
-let playerScore = 0;
-
 function playRound(computerChoice, playerChoice) {
-  playerChoice = playerChoice.toLowerCase();
+  outcome.classList.remove("hidden");
   if (computerChoice === playerChoice) {
-    console.log("It's a tie");
+    outcome.textContent = "It's a tie";
   } else if (computerChoice === "scissors" && playerChoice === "paper") {
-    computerScore++;
-    console.log("You lose! Scissors beat paper");
+    computerScoresPoint();
+    outcome.textContent = "You lose! Scissors beat paper";
   } else if (computerChoice === "rock" && playerChoice === "scissors") {
-    computerScore++;
-    console.log("You lose! Rock beats scissors");
+    computerScoresPoint();
+    outcome.textContent = "You lose! Rock beats scissors";
   } else if (computerChoice === "paper" && playerChoice === "rock") {
-    computerScore++;
-    console.log("You lose! Paper beats rock");
+    computerScoresPoint();
+    outcome.textContent = "You lose! Paper beats rock";
   } else if (computerChoice === "paper" && playerChoice === "scissors") {
-    playerScore++;
-    console.log("You win! Scissors beats paper");
+    playerScoresPoint();
+    outcome.textContent = "You win! Scissors beats paper";
   } else if (computerChoice === "scissors" && playerChoice === "rock") {
-    playerScore++;
-    console.log("You win! Rock beats scissors");
+    playerScoresPoint();
+    outcome.textContent = "You win! Rock beats scissors";
   } else if (computerChoice === "rock" && playerChoice === "paper") {
-    playerScore++;
-    console.log("You win! Paper beats rock");
+    playerScoresPoint();
+    outcome.textContent = "You win! Paper beats rock";
   }
 }
 
-// console.log(playRound(getComputerChoice(), playerChoice));
+rockBtn.addEventListener("click", function () {
+  playerChoiceImg.src = "./img/rock.svg";
+  playerChoiceImg.alt = "rock";
+  playerChoice = "rock";
+  getComputerChoice();
+  return playRound(computerChoice, playerChoice);
+});
 
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     playRound(
-//       getComputerChoice(),
-//       prompt("Make a choice: rock, paper, or scissors")
-//     );
-//     console.log(
-//       `Player Score: ${playerScore}, Computer Score: ${computerScore}`
-//     );
-//   }
-//   if (playerScore > computerScore) {
-//     return "Congratulations, you win!";
-//   } else if (computerScore > playerScore) {
-//     return "I'm sorry, computer wins.";
-//   } else {
-//     return "It's a tie.";
-//   }
-// }
+paperBtn.addEventListener("click", function () {
+  playerChoiceImg.src = "./img/paper.svg";
+  playerChoiceImg.alt = "paper";
+  playerChoice = "paper";
+  getComputerChoice();
+  return playRound(computerChoice, playerChoice);
+});
 
-console.log(game());
+scissorsBtn.addEventListener("click", function () {
+  playerChoiceImg.src = "./img/scissors.svg";
+  playerChoiceImg.alt = "scissors";
+  playerChoice = "scissors";
+  getComputerChoice();
+  return playRound(computerChoice, playerChoice);
+});
